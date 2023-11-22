@@ -6,7 +6,7 @@ with io.open('README.md', 'rt', encoding='utf8') as f:
 
 setup(
     name='ptb-pagination',
-    version='0.0.1',
+    version='0.0.2',
     url='https://github.com/wiltonsr/ptb-pagination',
     license='MIT',
     author='Wilton Rodrigues',
@@ -17,6 +17,6 @@ setup(
     include_package_data=True,
     platforms='any',
     install_requires=[
-        'python-telegram-bot>=13.6',
+        'python-telegram-bot[callback-data]>=13.6',
     ],
 )
