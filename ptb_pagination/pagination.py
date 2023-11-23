@@ -143,11 +143,18 @@ class InlineKeyboardPaginator:
             elif isinstance(ib, list) and self._depth(ib) == 2:
                 for sib in ib:
                     position.append(sib)
+            elif isinstance(ib, list) and self._depth(ib) >= 3:
+                logger.warning(
+                    "Ignoring since lists with depth equal to or greater than "
+                    "3 cannot be parsed in a valid `InlineKeyboardMarkup`."
+                )
             elif isinstance(ib, InlineKeyboardButton):
                 position.append([ib])
             else:
-                # It's not a valid InlineKeyboardButton format
-                pass
+                logger.warning(
+                    "Ignoring since it's not a valid "
+                    "`InlineKeyboardButton` format"
+                )
 
     def add_before(self, *inline_buttons):
         self._add_at_position(self._keyboard_before, *inline_buttons)

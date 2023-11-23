@@ -6,7 +6,7 @@ with io.open('README.md', 'rt', encoding='utf8') as f:
 
 setup(
     name='ptb-pagination',
-    version='0.0.3',
+    version='0.0.4',
     url='https://github.com/wiltonsr/ptb-pagination',
     license='MIT',
     author='Wilton Rodrigues',
