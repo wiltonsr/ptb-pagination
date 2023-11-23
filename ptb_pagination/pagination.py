@@ -1,7 +1,9 @@
-# -*- coding: utf-8 -*-
+import logging
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from typing import List
+
+logger = logging.getLogger(__name__)
 
 
 class InlineKeyboardPaginator:
@@ -10,7 +12,7 @@ class InlineKeyboardPaginator:
     previous_page_label = '‹ {}'
     next_page_label = '{} ›'
     last_page_label = '{} »'
-    current_page_label = '·{}·'
+    current_page_label = '· {} ·'
 
     def __init__(self, page_count, current_page=1, data_pattern='{page}'):
         self._keyboard_before: List[InlineKeyboardButton] = []
@@ -127,7 +129,6 @@ class InlineKeyboardPaginator:
         return InlineKeyboardMarkup(keyboards)
 
     # https://stackoverflow.com/a/6039138
-
     def _depth(self, L):
         return isinstance(L, list) and max(map(self._depth, L))+1
 
