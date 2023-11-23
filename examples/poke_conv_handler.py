@@ -115,14 +115,15 @@ async def poke_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> i
 async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     query = update.callback_query
 
-    await query.answer()
+    if query:
+        await query.answer()
 
-    poke = query.data
+        poke = query.data
 
-    await query.edit_message_text(
-        text=(poke.poke_html_msg()),
-        parse_mode=ParseMode.HTML,
-    )
+        await query.edit_message_text(
+            text=(poke.poke_html_msg()),
+            parse_mode=ParseMode.HTML,
+        )
 
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
