@@ -69,6 +69,9 @@ async def page_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
 
 def read_pokes(offset: int = 0, limit: int = MAX_PAGE_SIZE) -> list:
+    if offset + MAX_PAGE_SIZE > MAX_POKES:
+        limit = MAX_POKES - offset
+
     req = Request(
         url=POKE_API_URL.format(offset=offset, limit=limit),
         headers={'User-Agent': 'Mozilla/5.0'}
