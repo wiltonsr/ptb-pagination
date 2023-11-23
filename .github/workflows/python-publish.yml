@@ -11,11 +11,15 @@ name: Upload Python Package
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
+    paths:
+      - 'ptb_pagination/**'
   pull_request:
-    branches: [main]
-  release:
-    types: [published]
+    branches:
+      - main
+    paths:
+      - 'ptb_pagination/**'
 
 permissions:
   contents: read
