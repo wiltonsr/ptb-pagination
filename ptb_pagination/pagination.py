@@ -103,7 +103,7 @@ class InlineKeyboardPaginator:
             keyboard.append(
                 InlineKeyboardButton(
                     text=str(keyboard_dict[key]),
-                    callback_data=self.data_pattern.format(page=key)
+                    callback_data=self.data_pattern.format(page=key) if self.current_page != key else "None"
                 )
             )
         return keyboard
